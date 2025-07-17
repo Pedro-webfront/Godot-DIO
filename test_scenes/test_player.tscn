@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4f2x0vaw3x4j"]
 
-[ext_resource type="Texture2D" uid="uid://dnq5f8ehlrenf" path="res://addons/Warrior_Red.png" id="1_sjxrt"]
+[ext_resource type="Texture2D" uid="uid://dnq5f8ehlrenf" path="res://player/Warrior_Red.png" id="1_sjxrt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uajvf"]
 line_spacing = 140.0

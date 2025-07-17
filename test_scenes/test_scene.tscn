@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://640ryixw2g0p"]
+[gd_scene load_steps=45 format=3 uid="uid://640ryixw2g0p"]
 
 [ext_resource type="Texture2D" uid="uid://btqbv31apj7mf" path="res://addons/Tiny Swords (Free Pack)/Buildings/Black Buildings/Castle.png" id="1_m2oj7"]
 [ext_resource type="Texture2D" uid="uid://dlxivu2nrhlo7" path="res://addons/Tiny Swords (Free Pack)/Buildings/Black Buildings/House1.png" id="2_t4meb"]
@@ -42,67 +42,70 @@
 [ext_resource type="Texture2D" uid="uid://dfxhxdhsgw4h0" path="res://addons/Tiny Swords (Free Pack)/Units/Black Units/Warrior/Warrior_Guard.png" id="40_k032i"]
 [ext_resource type="Texture2D" uid="uid://bmfsex3lq40n3" path="res://addons/Tiny Swords (Free Pack)/Units/Black Units/Warrior/Warrior_Idle.png" id="41_rn0wa"]
 [ext_resource type="Texture2D" uid="uid://2gp061savtyf" path="res://addons/Tiny Swords (Free Pack)/Units/Black Units/Warrior/Warrior_Run.png" id="42_8q3e3"]
+[ext_resource type="PackedScene" uid="uid://cuixx3ck45u3e" path="res://enemies/pawn.tscn" id="43_8bgsf"]
+[ext_resource type="PackedScene" uid="uid://lct6tyhpkkur" path="res://player/player.tscn" id="44_qdcic"]
 
 [node name="Test_scene" type="Node2D"]
+position = Vector2(11, -8)
 
 [node name="Castle" type="Sprite2D" parent="."]
-position = Vector2(183, 63)
+position = Vector2(1798, 612)
 texture = ExtResource("1_m2oj7")
 
 [node name="House1" type="Sprite2D" parent="."]
-position = Vector2(536, 100)
+position = Vector2(2151, 649)
 texture = ExtResource("2_t4meb")
 
 [node name="House2" type="Sprite2D" parent="."]
-position = Vector2(799, 111)
+position = Vector2(2414, 660)
 texture = ExtResource("3_247vo")
 
 [node name="House3" type="Sprite2D" parent="."]
-position = Vector2(1030, 116)
+position = Vector2(2645, 665)
 texture = ExtResource("4_315hk")
 
 [node name="Tower" type="Sprite2D" parent="."]
-position = Vector2(177, 345)
+position = Vector2(1792, 894)
 texture = ExtResource("5_fhg5a")
 
 [node name="Bushe1" type="Sprite2D" parent="."]
-position = Vector2(757, 394)
+position = Vector2(2372, 943)
 texture = ExtResource("6_hsm28")
 
 [node name="Bushe2" type="Sprite2D" parent="."]
-position = Vector2(762, 479)
+position = Vector2(2377, 1028)
 texture = ExtResource("7_f0oac")
 
 [node name="Bushe3" type="Sprite2D" parent="."]
-position = Vector2(767, 585)
+position = Vector2(2382, 1134)
 texture = ExtResource("8_b8s5n")
 
 [node name="Bushe4" type="Sprite2D" parent="."]
-position = Vector2(757, 681)
+position = Vector2(2372, 1230)
 texture = ExtResource("9_n3nxm")
 
 [node name="Rock1" type="Sprite2D" parent="."]
-position = Vector2(1315, 99)
+position = Vector2(2930, 648)
 texture = ExtResource("10_onxtu")
 
 [node name="Rock2" type="Sprite2D" parent="."]
-position = Vector2(1418, 98)
+position = Vector2(3033, 647)
 texture = ExtResource("11_grjov")
 
 [node name="Rock3" type="Sprite2D" parent="."]
-position = Vector2(1536, 96)
+position = Vector2(3151, 645)
 texture = ExtResource("12_r4ix2")
 
 [node name="Rock4" type="Sprite2D" parent="."]
-position = Vector2(1650, 98)
+position = Vector2(3265, 647)
 texture = ExtResource("13_73ayg")
 
 [node name="SheepGrass" type="Sprite2D" parent="."]
-position = Vector2(1004, 653)
+position = Vector2(2619, 1202)
 texture = ExtResource("14_m730f")
 
 [node name="SheepMove" type="Sprite2D" parent="."]
-position = Vector2(521, 765)
+position = Vector2(2136, 1314)
 texture = ExtResource("15_nq2mq")
 
 [node name="SheepIdle" type="Sprite2D" parent="."]
@@ -162,53 +165,77 @@ position = Vector2(1574, 2486)
 texture = ExtResource("29_ng42v")
 
 [node name="ArcherIdle" type="Sprite2D" parent="."]
-position = Vector2(2155, 3103)
+position = Vector2(4065, 150)
 texture = ExtResource("30_ebmxj")
 
 [node name="ArcherRun" type="Sprite2D" parent="."]
-position = Vector2(1934, 3322)
+position = Vector2(3844, 369)
 texture = ExtResource("31_hnae7")
 
 [node name="ArcherShoot" type="Sprite2D" parent="."]
-position = Vector2(2157, 3461)
+position = Vector2(4067, 508)
 texture = ExtResource("32_wiiu1")
 
 [node name="Arrow" type="Sprite2D" parent="."]
-position = Vector2(2976, 3446)
+position = Vector2(4886, 493)
 texture = ExtResource("33_3qrjo")
 
 [node name="LancerDownRightAttack" type="Sprite2D" parent="."]
-position = Vector2(1869, 3994)
+position = Vector2(3779, 1041)
 texture = ExtResource("34_1065e")
 
 [node name="LancerDownRightDefence" type="Sprite2D" parent="."]
-position = Vector2(2396, 4329)
+position = Vector2(4306, 1376)
 texture = ExtResource("35_jkdjy")
 
 [node name="LancerDownAttack" type="Sprite2D" parent="."]
-position = Vector2(2174, 4552)
+position = Vector2(4084, 1599)
 texture = ExtResource("36_hic70")
 
 [node name="LancerDownDefence" type="Sprite2D" parent="."]
-position = Vector2(2081, 4770)
+position = Vector2(3991, 1817)
 texture = ExtResource("37_ggqak")
 
 [node name="WarriorAttack1" type="Sprite2D" parent="."]
-position = Vector2(861, 5262)
+position = Vector2(2771, 2309)
 texture = ExtResource("38_guuc8")
 
 [node name="WarriorAttack2" type="Sprite2D" parent="."]
-position = Vector2(861, 5390)
+position = Vector2(2771, 2437)
 texture = ExtResource("39_pu2ny")
 
 [node name="WarriorGuard" type="Sprite2D" parent="."]
-position = Vector2(1049, 5109)
+position = Vector2(2959, 2156)
 texture = ExtResource("40_k032i")
 
 [node name="WarriorIdle" type="Sprite2D" parent="."]
-position = Vector2(1246, 5506)
+position = Vector2(3156, 2553)
 texture = ExtResource("41_rn0wa")
 
 [node name="WarriorRun" type="Sprite2D" parent="."]
-position = Vector2(1042, 4999)
+position = Vector2(2952, 2046)
 texture = ExtResource("42_8q3e3")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("43_8bgsf")]
+position = Vector2(1111, 363)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("43_8bgsf")]
+position = Vector2(703, 469)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("43_8bgsf")]
+position = Vector2(398, 473)
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("43_8bgsf")]
+position = Vector2(272, 369)
+
+[node name="CharacterBody2D5" parent="." instance=ExtResource("43_8bgsf")]
+position = Vector2(441, 231)
+
+[node name="CharacterBody2D6" parent="." instance=ExtResource("43_8bgsf")]
+position = Vector2(751, 194)
+
+[node name="Player" parent="." instance=ExtResource("44_qdcic")]
+position = Vector2(379, 335)
+
+[node name="Player2" parent="." instance=ExtResource("44_qdcic")]
+position = Vector2(478, 209)

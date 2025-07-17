@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://lct6tyhpkkur"]
 
-[ext_resource type="Texture2D" uid="uid://dnq5f8ehlrenf" path="res://addons/Warrior_Red.png" id="1_nbk0j"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_o4tgt"]
+[ext_resource type="Texture2D" uid="uid://dnq5f8ehlrenf" path="res://player/Warrior_Red.png" id="2_i7cq7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3gn1"]
 radius = 14.9827
@@ -168,13 +168,13 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(451, 443)
-scale = Vector2(3.60417, 3.16667)
+scale = Vector2(1.3463, 0.977241)
 script = ExtResource("1_o4tgt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -29.0526)
-texture = ExtResource("1_nbk0j")
+texture = ExtResource("2_i7cq7")
 hframes = 6
 vframes = 8
 
