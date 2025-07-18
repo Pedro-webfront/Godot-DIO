@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed: float = 3
+@export var sword_damage: int = 2
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -45,8 +47,13 @@ func attack() -> void:
 	
 	attack_cooldown = 0.6
 	is_attacking = true
+	
+func deal_damage_to_enemies() ->  void:
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		enemy.damage(sword_damage)
 
-# ATUALIZADA: A variável 'was_running' não é mais necessária
+
 func read_input() -> void:
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	is_running = not input_vector.is_zero_approx()
