@@ -54,7 +54,16 @@ func deal_damage_to_enemies() ->  void:
 	for body in bodies:
 		if body.is_in_group("enemies"):
 			var enemy: Enemy = body
-			enemy.damage(sword_damage)
+			var direction_to_enemy = (enemy.position - position).normalized()
+			var attack_direction: Vector2
+			if sprite.flip_h:
+				attack_direction = Vector2.LEFT
+			else:
+				attack_direction = Vector2.RIGHT
+			var dot_product = direction_to_enemy.dot(attack_direction)
+			
+			if dot_product >= 0.4:
+				enemy.damage(sword_damage)
 
 
 func read_input() -> void:
