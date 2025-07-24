@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nm88qegn3joy"
-path="res://.godot/imported/Pawn_Red.png-2be3cae020da6126a812860540fffb87.ctex"
+path="res://.godot/imported/Pawn_Red.png-fc32623092e9b6a0a00aba6863ceb6ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/Pawn_Red.png"
-dest_files=["res://.godot/imported/Pawn_Red.png-2be3cae020da6126a812860540fffb87.ctex"]
+source_file="res://addons/Pawn_Red.png"
+dest_files=["res://.godot/imported/Pawn_Red.png-fc32623092e9b6a0a00aba6863ceb6ea.ctex"]
 
 [params]
 

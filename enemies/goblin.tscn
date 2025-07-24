@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://bwqxxdvaollt2"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_314ro"]
+[ext_resource type="PackedScene" uid="uid://5dapkq26gu4t" path="res://misc/skull.tscn" id="2_y8wnn"]
+[ext_resource type="Texture2D" uid="uid://c81xy7ucdi7n8" path="res://addons/Torch_Yellow.png" id="3_yjm00"]
+[ext_resource type="Script" path="res://enemies/behaviors/follow_player.gd" id="4_108te"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceb2g"]
+atlas = ExtResource("3_yjm00")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkhem"]
+atlas = ExtResource("3_yjm00")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfo3n"]
+atlas = ExtResource("3_yjm00")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxtiy"]
+atlas = ExtResource("3_yjm00")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_repod"]
+atlas = ExtResource("3_yjm00")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciey8"]
+atlas = ExtResource("3_yjm00")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_le1fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceb2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkhem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfo3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxtiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_repod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciey8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_32r7l"]
+radius = 27.0
+height = 72.0
+
+[node name="Goblin" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(277, 67)
+script = ExtResource("1_314ro")
+health = 25
+death_prefab = ExtResource("2_y8wnn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.52695, 1.4629)
+sprite_frames = SubResource("SpriteFrames_le1fn")
+autoplay = "default"
+frame_progress = 0.849408
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_32r7l")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("4_108te")
+speed = 0.75

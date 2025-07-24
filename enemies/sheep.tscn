@@ -1,0 +1,139 @@
+[gd_scene load_steps=21 format=3 uid="uid://dhudejjreat72"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_rpfkr"]
+[ext_resource type="PackedScene" uid="uid://5dapkq26gu4t" path="res://misc/skull.tscn" id="2_we5pm"]
+[ext_resource type="Texture2D" uid="uid://m6rguydc5uwn" path="res://addons/HappySheep_All.png" id="3_yniye"]
+[ext_resource type="Script" path="res://enemies/behaviors/follow_player.gd" id="4_ijkd3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx0iv"]
+atlas = ExtResource("3_yniye")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eb4r"]
+atlas = ExtResource("3_yniye")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pq8g"]
+atlas = ExtResource("3_yniye")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c4k8"]
+atlas = ExtResource("3_yniye")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqkkx"]
+atlas = ExtResource("3_yniye")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnhco"]
+atlas = ExtResource("3_yniye")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3leop"]
+atlas = ExtResource("3_yniye")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as5aq"]
+atlas = ExtResource("3_yniye")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51bxe"]
+atlas = ExtResource("3_yniye")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7fuq"]
+atlas = ExtResource("3_yniye")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipxi5"]
+atlas = ExtResource("3_yniye")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cr8v"]
+atlas = ExtResource("3_yniye")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxwcq"]
+atlas = ExtResource("3_yniye")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj267"]
+atlas = ExtResource("3_yniye")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_le1fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx0iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eb4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pq8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c4k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqkkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnhco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3leop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as5aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51bxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7fuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipxi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cr8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxwcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj267")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ff7xk"]
+radius = 13.0026
+height = 45.9998
+
+[node name="Sheep" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(277, 67)
+script = ExtResource("1_rpfkr")
+health = 2
+death_prefab = ExtResource("2_we5pm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.776042, 0.74349)
+sprite_frames = SubResource("SpriteFrames_le1fn")
+autoplay = "default"
+frame = 2
+frame_progress = 0.506249
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+rotation = 1.56811
+shape = SubResource("CapsuleShape2D_ff7xk")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("4_ijkd3")
+speed = 1.5
