@@ -10,7 +10,7 @@ extends CharacterBody2D
 var input_vector: Vector2 = Vector2(0, 0)
 var is_running: bool = false
 var is_attacking: bool = false
-var attack_cooldown: float = 0.0
+var attack_cooldown: float = 0.3
 
 
 func _process(delta: float) -> void:

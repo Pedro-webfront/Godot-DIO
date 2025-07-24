@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuixx3ck45u3e"]
+[gd_scene load_steps=13 format=3 uid="uid://cuixx3ck45u3e"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_afidq"]
 [ext_resource type="Script" path="res://enemies/behaviors/follow_player.gd" id="1_b63q3"]
 [ext_resource type="Texture2D" uid="uid://nm88qegn3joy" path="res://enemies/Pawn_Red.png" id="2_afcgd"]
+[ext_resource type="PackedScene" uid="uid://5dapkq26gu4t" path="res://misc/skull.tscn" id="2_qgs7b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nap7j"]
 atlas = ExtResource("2_afcgd")
@@ -61,6 +62,7 @@ height = 42.0
 [node name="pawn" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(277, 67)
 script = ExtResource("1_afidq")
+death_prefab = ExtResource("2_qgs7b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.776042, 0.74349)
