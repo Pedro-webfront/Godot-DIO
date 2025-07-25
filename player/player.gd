@@ -2,19 +2,24 @@ extends CharacterBody2D
 
 @export var speed: float = 3
 @export var sword_damage: int = 2
+@export var health: int = 25
+@export var death_prefab: PackedScene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword_area: Area2D = $SwordArea
+@onready var hitbox_area: Area2D = $HitboxArea
 
 var input_vector: Vector2 = Vector2(0, 0)
 var is_running: bool = false
 var is_attacking: bool = false
-var attack_cooldown: float = 0.3
+var attack_cooldown: float = 0.0
+var hitbox_cooldown: float = 0.0
 
 
 func _process(delta: float) -> void:
 	GameManager.player_position = position
+	
 	read_input()
 	update_animations() # NOVA função que centraliza a lógica de animação
 	rotate_sprite()
@@ -23,6 +28,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack"):
 		attack()
+	
+	update_hitbox_detection(delta)
 
 
 func _physics_process(_delta: float) -> void: # Usar _delta para remover o aviso de variável não usada
@@ -100,3 +107,43 @@ func rotate_sprite() -> void:
 		sprite.flip_h = false
 	elif input_vector.x < 0:
 		sprite.flip_h = true
+
+func update_hitbox_detection(delta: float) -> void:
+	hitbox_cooldown -= delta
+	if hitbox_cooldown > 0: return
+	
+	hitbox_cooldown = 0.5
+	
+	var bodies = hitbox_area.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group("enemies"):
+			var enemy: Enemy  = body
+			var damage_amount = 1
+			damage(damage_amount)
+
+
+func damage(amount: int) -> void:
+	if health <= 0: return
+	
+	health -= amount
+	print("Jogador recebeu dano de ", amount, ". A vida é total é ", health)
+	
+	modulate = Color.CRIMSON
+	
+	# Cria o Tween e encadeia todas as chamadas no mesmo objeto.
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.WHITE, 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUINT)
+
+	#processar a morte
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	if death_prefab:
+		var death_object = death_prefab.instantiate()
+		death_object.position = position
+		get_parent().add_child(death_object)
+		
+	print("Player morreu")
+	queue_free()

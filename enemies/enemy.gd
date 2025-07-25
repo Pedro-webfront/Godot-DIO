@@ -6,19 +6,20 @@ extends Node2D
 
 func damage(amount: int) -> void:
 	health -= amount
-	print("Inimigo recebeu dano de ", amount, ". A vida é total é ", health)
+	print("O inimigo recebeu dano de ", amount, ". A vida é total é ", health)
 	
-	#piscar o node
 	modulate = Color.CRIMSON
+	
+	# Cria o Tween e encadeia todas as chamadas no mesmo objeto.
 	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_QUINT)
-	create_tween().tween_property(self, "modulate", Color.WHITE,0.3)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUINT)
+
+	if health <= 0:
+		die()
 
 	#processar a morte
 	if health <= 0:
 		die()
-
 
 func die() -> void:
 	if death_prefab:

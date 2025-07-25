@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://lct6tyhpkkur"]
+[gd_scene load_steps=17 format=3 uid="uid://lct6tyhpkkur"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_o4tgt"]
 [ext_resource type="Texture2D" uid="uid://dnq5f8ehlrenf" path="res://player/Warrior_Red.png" id="2_i7cq7"]
+[ext_resource type="PackedScene" uid="uid://dn0j4ulkyntxi" path="res://misc/Big_skull.tscn" id="2_jy35s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3gn1"]
 radius = 18.2775
@@ -253,9 +254,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_dah88"]
 radius = 81.7005
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t63wd"]
+radius = 37.0135
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(451, 443)
 script = ExtResource("1_o4tgt")
+death_prefab = ExtResource("2_jy35s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -281,3 +286,10 @@ autoplay = "Idle"
 position = Vector2(16.3411, -26.6055)
 shape = SubResource("CircleShape2D_dah88")
 debug_color = Color(1, 0, 0.203922, 0)
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(-1, -20)
+shape = SubResource("CircleShape2D_t63wd")
+debug_color = Color(0.960784, 0.137255, 0.352941, 0.0705882)
